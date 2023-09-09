@@ -25,7 +25,11 @@ export class GridComponent {
   ngOnInit() {
     console.log(this.currentDate);
 
-    this.puzzleFile = '/assets/' + this.currentDate + '.json';
+    // prod env
+    this.puzzleFile = '/connections-crew/assets/' + this.currentDate + '.json';
+
+    // local env
+    // this.puzzleFile = '/assets/' + this.currentDate + '.json';
     fetch(this.puzzleFile).then(res => res.json())
       .then(json => {
         this.puzzleData = json;

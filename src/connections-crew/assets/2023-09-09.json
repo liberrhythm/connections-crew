@@ -1,0 +1,20 @@
+{
+  "categories": [
+    {
+      "category": "HEAT SOURCES",
+      "words": ["FORGE", "FURNACE", "KILN", "OVEN"]
+    },
+    {
+      "category": "BASEBALL CALLS",
+      "words": ["BALL", "OUT", "SAFE", "STRIKE"]
+    },
+    {
+      "category": "FISH THAT ARE VERBS",
+      "words": ["CARP", "CATFISH", "FLOUNDER", "SMELT"]
+    },
+    {
+      "category": "SILENT \"L\"",
+      "words": ["COLONEL", "SALMON", "WALK", "YOLK"]
+    }
+  ]
+}
