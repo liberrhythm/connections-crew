@@ -1,4 +1,4 @@
-<div id="successful-category">
+<div id="successful-category" [ngStyle]="{'background-color': category?.difficulty}">
   <span id="category">{{ category?.category }}</span>
   <span id="words">{{ category?.words?.toString() }}</span>
 </div>

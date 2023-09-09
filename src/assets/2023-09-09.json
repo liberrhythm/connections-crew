@@ -2,18 +2,22 @@
   "categories": [
     {
       "category": "HEAT SOURCES",
+      "difficulty": "green",
       "words": ["FORGE", "FURNACE", "KILN", "OVEN"]
     },
     {
       "category": "BASEBALL CALLS",
+      "difficulty": "yellow",
       "words": ["BALL", "OUT", "SAFE", "STRIKE"]
     },
     {
       "category": "FISH THAT ARE VERBS",
+      "difficulty": "blue",
       "words": ["CARP", "CATFISH", "FLOUNDER", "SMELT"]
     },
     {
       "category": "SILENT \"L\"",
+      "difficulty": "purple",
       "words": ["COLONEL", "SALMON", "WALK", "YOLK"]
     }
   ]

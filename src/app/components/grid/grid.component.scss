@@ -1,23 +1,20 @@
 #correct-category-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 10px;
-  margin: 10px 0px;
+  margin: 20px;
 }
 
 #grid-container {
   display: flex;
   flex-wrap: wrap;
-  width: 630px;
-  height: 430px;
+  // width: 630px;
+  // height: 430px;
   gap: 10px;
-  justify-content: space-between;
-  align-items: center;
+  margin: 20px;
 
   app-tile {
-    width: 23%;
-    box-sizing: border-box;
+    flex: 1 1 23%;
   }
 }
 
