@@ -66,8 +66,13 @@ export class GridComponent {
           this.wordArray.push(new Word(word, false));
         });
 
+        console.log("original");
         console.log(this.wordArray);
-        this.wordArray = this.shuffle(this.wordArray, 0.2521);
+        // this.wordArray = this.shuffle(this.wordArray, 0.2521);
+        // console.log(this.wordArray);
+
+        console.log("fisher yates");
+        this.wordArray = this.fisherYatesShuffle(this.wordArray);
         console.log(this.wordArray);
       });
   }
@@ -96,7 +101,8 @@ export class GridComponent {
 
   shuffleWords() {
     console.log("shuffling words");
-    this.shuffle(this.wordArray, Math.random());
+    // this.wordArray = this.shuffle(this.wordArray, Math.random());
+    this.wordArray = this.fisherYatesShuffle(this.wordArray);
   }
 
   deselectAllWords() {
@@ -180,6 +186,24 @@ export class GridComponent {
     }
 
     return array;
+  }
+
+  // shuffle
+  // https://bost.ocks.org/mike/shuffle/
+  fisherYatesShuffle(array: any[]) {
+    var copy = [], n = array.length, i;
+
+    // While there remain elements to shuffle…
+    while (n) {
+
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * n--);
+
+      // And move it to the new array.
+      copy.push(array.splice(i, 1)[0]);
+    }
+
+    return copy;
   }
 
   // random(seed: number) {
