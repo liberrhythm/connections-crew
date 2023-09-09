@@ -1,7 +1,7 @@
+import { Component, Input } from '@angular/core';
+import { Puzzle } from './../../models/puzzle.model';
+import { Word } from './../../models/word.model';
 import { Category } from './../../models/category.model';
-import { Component } from '@angular/core';
-import { Puzzle } from 'src/app/models/puzzle.model';
-import { Word } from 'src/app/models/word.model';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -12,8 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class GridComponent {
 
-  currentDate: string = new Date().toISOString().slice(0, 10);
-  puzzleFile: string = '';
+  @Input() puzzleFileName: string = '';
+
   puzzleData: Puzzle | undefined;
   wordArray: Word[] = [];
   selectedWords: Word[] = [];
@@ -24,19 +24,26 @@ export class GridComponent {
 
   constructor(private _snackBar: MatSnackBar) {}
 
-  ngOnInit() {
-    console.log(this.currentDate);
+  ngOnChanges() {
+    console.log(this.puzzleFileName);
 
     // prod env
-    this.puzzleFile = '/connections-crew/assets/' + this.currentDate + '.json';
+    this.puzzleFileName = '/connections-crew/assets/' + this.puzzleFileName;
 
     // local env
-    // this.puzzleFile = '/assets/' + this.currentDate + '.json';
+    // this.puzzleFileName = '/assets/' + this.puzzleFileName;
 
-    fetch(this.puzzleFile).then(res => res.json())
+    fetch(this.puzzleFileName).then(res => res.json())
       .then(json => {
         this.puzzleData = json;
         console.log(this.puzzleData);
+
+        // reset all data for new puzzle
+        this.wordArray = [];
+        this.selectedWords = [];
+        this.correctCategories = [];
+        this.numMistakesRemaining = 4;
+        this.correctAnswersSoFar = 0;
 
         // this.wordArray = ([] as any[]).concat(
         //   this.puzzleData?.categories[0].words,
@@ -60,7 +67,7 @@ export class GridComponent {
         });
 
         console.log(this.wordArray);
-        this.wordArray = this.shuffle(this.wordArray);
+        this.wordArray = this.shuffle(this.wordArray, 1);
         console.log(this.wordArray);
       });
   }
@@ -89,7 +96,7 @@ export class GridComponent {
 
   shuffleWords() {
     console.log("shuffling words");
-    this.shuffle(this.wordArray);
+    this.shuffle(this.wordArray, Math.random());
   }
 
   deselectAllWords() {
@@ -154,16 +161,16 @@ export class GridComponent {
     }
   }
 
-  // shuffle implementation:
+  // shuffle implementation w/ seed
   // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  shuffle(array: any[]) {
+  shuffle(array: any[], seed: number) {
     let currentIndex = array.length,  randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex > 0) {
 
       // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
+      randomIndex = Math.floor(this.random(seed) * currentIndex);
       currentIndex--;
 
       // And swap it with the current element.
@@ -172,6 +179,11 @@ export class GridComponent {
     }
 
     return array;
+  }
+
+  random(seed: number) {
+    var x = Math.sin(seed++) * 10000;
+    return x - Math.floor(x);
   }
 
 }

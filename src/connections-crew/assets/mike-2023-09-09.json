@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "category": "LUCKY _____",
+      "difficulty": "thistle",
+      "words": ["CHARM", "NUMBER", "DAY", "JEANS"]
+    },
+    {
+      "category": "BURNT _____",
+      "difficulty": "lightgreen",
+      "words": ["ENDS", "ASH", "OUT", "ORANGE"]
+    },
+    {
+      "category": "POS SYSTEMS",
+      "difficulty": "lightblue",
+      "words": ["SQUARE", "TOAST", "STRIPE", "CLOVER"]
+    },
+    {
+      "category": "PANTS",
+      "difficulty": "lightyellow",
+      "words": ["CARGO", "CORDUROY", "TRACK", "SWEAT"]
+    }
+  ]
+}

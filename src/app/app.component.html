@@ -1,7 +1,17 @@
-<h1 id="title">{{ title }}</h1>
+<div id="app-container">
+  <h1 id="title">{{ title }}</h1>
 
-<div class="container">
-  <app-grid></app-grid>
+  <mat-form-field id="puzzle-selector">
+    <mat-select placeholder="Puzzle Name" [(value)]="selectedPuzzleFileName">
+      <mat-option *ngFor="let file of puzzleFiles" [value]="file.fileName">
+        {{ file.fileName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div id="grid-container">
+    <app-grid [puzzleFileName]="selectedPuzzleFileName"></app-grid>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

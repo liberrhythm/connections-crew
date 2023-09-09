@@ -1,14 +1,14 @@
 <div id="correct-category-container" *ngIf="correctCategories.length > 0">
   <app-category *ngFor="let category of correctCategories" [category]="category"></app-category>
 </div>
-<div id="grid-container">
+<div id="grid-container" *ngIf="wordArray.length > 0">
   <app-tile *ngFor="let word of wordArray" [word]="word.word" [selected]="word.selected" (click)="toggleTileSelected(word)"></app-tile>
 </div>
-<div id="mistakes-container">
+<div id="mistakes-container" *ngIf="wordArray.length > 0">
   <span>Mistakes remaining:</span>
   <mat-icon *ngFor="let _ of [].constructor(numMistakesRemaining)" fontIcon="circle"></mat-icon>
 </div>
-<div id="button-container">
+<div id="button-container" *ngIf="wordArray.length > 0">
   <button mat-stroked-button (click)="shuffleWords()">Shuffle</button>
   <button mat-stroked-button (click)="deselectAllWords()">Deselect All</button>
   <button mat-stroked-button (click)="submitAnswer()" [disabled]="selectedWords.length < 4">Submit</button>
