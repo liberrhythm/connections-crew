@@ -28,10 +28,10 @@ export class GridComponent {
     console.log(this.currentDate);
 
     // prod env
-    // this.puzzleFile = '/connections-crew/assets/' + this.currentDate + '.json';
+    this.puzzleFile = '/connections-crew/assets/' + this.currentDate + '.json';
 
     // local env
-    this.puzzleFile = '/assets/' + this.currentDate + '.json';
+    // this.puzzleFile = '/assets/' + this.currentDate + '.json';
 
     fetch(this.puzzleFile).then(res => res.json())
       .then(json => {
