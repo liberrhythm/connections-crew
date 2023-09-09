@@ -1,0 +1,12 @@
+<div id="grid-container">
+  <app-tile *ngFor="let word of wordArray" [word]="word.word" [selected]="word.selected" (click)="toggleTileSelected(word)"></app-tile>
+</div>
+<div id="mistakes-container">
+  <span>Mistakes remaining:</span>
+  <mat-icon *ngFor="let _ of [].constructor(numMistakesRemaining)" fontIcon="circle"></mat-icon>
+</div>
+<div id="button-container">
+  <button mat-stroked-button (click)="shuffleWords()">Shuffle</button>
+  <button mat-stroked-button (click)="deselectAllWords()">Deselect All</button>
+  <button mat-stroked-button (click)="submitAnswer()" [disabled]="selectedWords.length < 4">Submit</button>
+</div>

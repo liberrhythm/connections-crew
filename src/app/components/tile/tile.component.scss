@@ -1,0 +1,35 @@
+#tile {
+  border-radius: 10px;
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+#tile:hover {
+  cursor: pointer;
+}
+
+#word {
+  align-self: center;
+  font-weight: bold;
+}
+
+.inactive {
+  background-color: #f5f5dc;
+  #word {
+    color:black;
+  }
+}
+
+.active {
+  background-color: gray;
+  #word {
+    color:white;
+  }
+}
+
+// pastel yellow - #FDFD96
+// pastel green - #77DD77
+// pastel blue - #A7C7E7
+// pastel purple - #C3B1E1

@@ -1,0 +1,14 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+app-grid {
+  align-self: center;
+}
