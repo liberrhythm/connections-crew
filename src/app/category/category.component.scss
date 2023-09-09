@@ -1,0 +1,14 @@
+#successful-category {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 630px;
+  height: 100px;
+  background-color: green;
+}
+
+#category, #words {
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+import { Category } from './../../models/category.model';
 import { Component } from '@angular/core';
 import { Puzzle } from 'src/app/models/puzzle.model';
 import { Word } from 'src/app/models/word.model';
@@ -16,6 +17,7 @@ export class GridComponent {
   puzzleData: Puzzle | undefined;
   wordArray: Word[] = [];
   selectedWords: Word[] = [];
+  correctCategories: Category[] = [];
 
   numMistakesRemaining: number = 4;
   correctAnswersSoFar: number = 0;
@@ -30,6 +32,7 @@ export class GridComponent {
 
     // local env
     // this.puzzleFile = '/assets/' + this.currentDate + '.json';
+
     fetch(this.puzzleFile).then(res => res.json())
       .then(json => {
         this.puzzleData = json;
@@ -106,39 +109,48 @@ export class GridComponent {
       if (doesAnswerMatch) {
         this.correctAnswersSoFar += 1;
         isAnswerCorrect = true;
+
+        // add to correct categories
+        this.correctCategories.push(category);
       }
       else {
         console.log("error!");
       }
     });
 
+    console.log(this.correctCategories);
+
     if (!isAnswerCorrect) {
+      console.log("answer is incorrect!");
       this.numMistakesRemaining -= 1;
-    }
 
-    if (this.numMistakesRemaining === 0) {
-      this._snackBar.open("You lost!", "Close", { duration: 3000 });
+      if (this.numMistakesRemaining === 0) {
+        this._snackBar.open("You lost!", "Close", { duration: 3000 });
+      }
+      else {
+        this._snackBar.open("Answer is wrong!", "Close", { duration: 3000 });
+      }
     }
-
-    if (this.correctAnswersSoFar === 4) {
-      this._snackBar.open("You won!", "Close", { duration: 3000 });
-    }
-
-    if (isAnswerCorrect) {
+    else {
       console.log("answer is correct!");
-      this._snackBar.open("Answer is correct!", "Close", { duration: 3000 });
 
-      // clean this up
+      if (this.correctAnswersSoFar === 4) {
+        this._snackBar.open("You won!", "Close", { duration: 3000 });
+      }
+      else {
+        this._snackBar.open("Answer is correct!", "Close", { duration: 3000 });
+      }
+
+      // add to correctCategories
+      this.correctCategories.push();
+
+      // clean up selectedWords and wordArray
       this.selectedWords.forEach(item1 => {
         this.wordArray.forEach((item2, index2) => {
           if (item1.word === item2.word) this.wordArray.splice(index2, 1);
         });
       });
       this.selectedWords = [];
-    }
-    else {
-      console.log("answer is incorrect!");
-      this._snackBar.open("Answer is wrong!", "Close", { duration: 3000 });
     }
   }
 

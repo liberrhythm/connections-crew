@@ -1,3 +1,6 @@
+<div id="correct-category-container">
+  <app-category *ngFor="let category of correctCategories" [category]="category"></app-category>
+</div>
 <div id="grid-container">
   <app-tile *ngFor="let word of wordArray" [word]="word.word" [selected]="word.selected" (click)="toggleTileSelected(word)"></app-tile>
 </div>
