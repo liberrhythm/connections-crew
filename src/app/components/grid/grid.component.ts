@@ -67,7 +67,7 @@ export class GridComponent {
         });
 
         console.log(this.wordArray);
-        this.wordArray = this.shuffle(this.wordArray, 1);
+        this.wordArray = this.shuffle(this.wordArray, 0.2521);
         console.log(this.wordArray);
       });
   }
@@ -163,14 +163,15 @@ export class GridComponent {
 
   // shuffle implementation w/ seed
   // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-  shuffle(array: any[], seed: number) {
-    let currentIndex = array.length,  randomIndex;
+  shuffle(array: any[], rand: number) {
+    let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex > 0) {
 
       // Pick a remaining element.
-      randomIndex = Math.floor(this.random(seed) * currentIndex);
+      randomIndex = Math.floor(rand * currentIndex);
+      console.log(randomIndex);
       currentIndex--;
 
       // And swap it with the current element.
@@ -181,9 +182,9 @@ export class GridComponent {
     return array;
   }
 
-  random(seed: number) {
-    var x = Math.sin(seed++) * 10000;
-    return x - Math.floor(x);
-  }
+  // random(seed: number) {
+  //   var x = Math.sin(seed++) * 10000;
+  //   return x - Math.floor(x);
+  // }
 
 }
