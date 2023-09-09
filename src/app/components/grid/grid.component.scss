@@ -8,8 +8,6 @@
 #grid-container {
   display: flex;
   flex-wrap: wrap;
-  // width: 630px;
-  // height: 430px;
   gap: 10px;
   margin: 20px;
 
@@ -21,13 +19,13 @@
 #mistakes-container {
   display: flex;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 20px;
 }
 
 #button-container {
   display: flex;
   justify-content: center;
-  margin: 10px 0px;
+  margin: 20px;
 }
 
 button {

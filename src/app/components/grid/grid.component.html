@@ -1,4 +1,4 @@
-<div id="correct-category-container">
+<div id="correct-category-container" *ngIf="correctCategories.length > 0">
   <app-category *ngFor="let category of correctCategories" [category]="category"></app-category>
 </div>
 <div id="grid-container">
