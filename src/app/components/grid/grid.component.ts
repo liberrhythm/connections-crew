@@ -125,20 +125,20 @@ export class GridComponent {
       this.numMistakesRemaining -= 1;
 
       if (this.numMistakesRemaining === 0) {
-        this._snackBar.open("You lost!", "Close", { duration: 3000 });
+        this._snackBar.open("You lost!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
       else {
-        this._snackBar.open("Answer is wrong!", "Close", { duration: 3000 });
+        this._snackBar.open("Answer is wrong!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
     }
     else {
       console.log("answer is correct!");
 
       if (this.correctAnswersSoFar === 4) {
-        this._snackBar.open("You won!", "Close", { duration: 3000 });
+        this._snackBar.open("You won!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
       else {
-        this._snackBar.open("Answer is correct!", "Close", { duration: 3000 });
+        this._snackBar.open("Answer is correct!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
 
       // add to correctCategories
