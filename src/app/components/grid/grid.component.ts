@@ -5,6 +5,8 @@ import { Category } from './../../models/category.model';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+import { intersection } from 'lodash';
+
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
@@ -22,10 +24,11 @@ export class GridComponent {
   numMistakesRemaining: number = 4;
   correctAnswersSoFar: number = 0;
 
+  randomSeed: number = 0.6268806904199931; // to be fixed
+
   constructor(private _snackBar: MatSnackBar) {}
 
   ngOnChanges() {
-    console.log(this.puzzleFileName);
 
     // prod env
     this.puzzleFileName = '/connections-crew/assets/' + this.puzzleFileName;
@@ -36,7 +39,6 @@ export class GridComponent {
     fetch(this.puzzleFileName).then(res => res.json())
       .then(json => {
         this.puzzleData = json;
-        console.log(this.puzzleData);
 
         // reset all data for new puzzle
         this.wordArray = [];
@@ -45,14 +47,7 @@ export class GridComponent {
         this.numMistakesRemaining = 4;
         this.correctAnswersSoFar = 0;
 
-        // this.wordArray = ([] as any[]).concat(
-        //   this.puzzleData?.categories[0].words,
-        //   this.puzzleData?.categories[1].words,
-        //   this.puzzleData?.categories[2].words,
-        //   this.puzzleData?.categories[3].words
-        // );
-
-        // clean this up
+        // TODO: clean this up
         this.puzzleData?.categories[0].words.forEach(word => {
           this.wordArray.push(new Word(word, false));
         });
@@ -83,7 +78,6 @@ export class GridComponent {
     if (!word.selected) {
       if (this.selectedWords.length === 4) {
         console.log("already at 4 selected words");
-        console.log(this.selectedWords);
         return;
       }
       word.selected = true;
@@ -95,8 +89,6 @@ export class GridComponent {
         if(item.word === word.word) this.selectedWords.splice(index, 1);
       });
     }
-
-    console.log(this.selectedWords);
   }
 
   shuffleWords() {
@@ -111,27 +103,36 @@ export class GridComponent {
       word.selected = false;
     });
     this.selectedWords = [];
-    console.log(this.selectedWords);
   }
 
   submitAnswer() {
     let isAnswerCorrect = false;
+    let isAnswerClose = false;
     this.puzzleData?.categories.forEach(category => {
-      let doesAnswerMatch = this.selectedWords.every(item => category.words.includes(item.word))
-        && category.words.every(item => this.selectedWords.map(word => word.word).includes(item));
-      if (doesAnswerMatch) {
+      // let doesAnswerMatch = this.selectedWords.every(item => category.words.includes(item.word))
+      //   && category.words.every(item => this.selectedWords.map(word => word.word).includes(item));
+
+      let currentlySelectedWordsOnly = this.selectedWords.map(word => word.word);
+
+      let categoryIntersection = intersection(currentlySelectedWordsOnly, category.words);
+      console.log(categoryIntersection);
+      let doesAnswerMatch = categoryIntersection.length === 4;
+
+      if (categoryIntersection.length === 4) { // answer is correct
         this.correctAnswersSoFar += 1;
         isAnswerCorrect = true;
 
         // add to correct categories
         this.correctCategories.push(category);
       }
-      else {
+      else if (categoryIntersection.length === 3) { // answer is close
+        console.log("error!");
+        isAnswerClose = true;
+      }
+      else { // answer is not close
         console.log("error!");
       }
     });
-
-    console.log(this.correctCategories);
 
     if (!isAnswerCorrect) {
       console.log("answer is incorrect!");
@@ -139,6 +140,9 @@ export class GridComponent {
 
       if (this.numMistakesRemaining === 0) {
         this._snackBar.open("You lost!", "Close", { duration: 3000, verticalPosition: 'top' });
+      }
+      else if (isAnswerClose) {
+        this._snackBar.open("Answer is one away!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
       else {
         this._snackBar.open("Answer is wrong!", "Close", { duration: 3000, verticalPosition: 'top' });
