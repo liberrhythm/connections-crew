@@ -13,3 +13,6 @@
   <button mat-stroked-button (click)="deselectAllWords()">Deselect All</button>
   <button mat-stroked-button (click)="submitAnswer()" [disabled]="selectedWords.length < 4">Submit</button>
 </div>
+<div id="button-container" *ngIf="correctCategories.length === 4">
+  <button mat-stroked-button (click)="copyGuessedCategoriesToClipboard()">Copy Results</button>
+</div>

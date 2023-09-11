@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Puzzle } from './../../models/puzzle.model';
 import { Word } from './../../models/word.model';
 import { Category } from './../../models/category.model';
@@ -7,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { intersection } from 'lodash';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environment/environment';
 
 @Component({
   selector: 'app-grid',
@@ -21,6 +22,8 @@ export class GridComponent {
   puzzleData: Puzzle | undefined;
   wordArray: Word[] = [];
   selectedWords: Word[] = [];
+
+  guessedCategories: Word[][] = [];
   correctCategories: Category[] = [];
 
   numMistakesRemaining: number = 4;
@@ -28,10 +31,23 @@ export class GridComponent {
 
   randomSeed: number = 0.6268806904199931; // to be fixed
 
-  constructor(private _snackBar: MatSnackBar) {}
+  colorToEmojiUnicode = {
+    "yellow": "&#129000",
+    "green": "&#129001",
+    "blue": "&#128998",
+    "purple": "&#129002"
+  };
+
+  colorToEmojiUnicodeMap = new Map([
+    ["lightyellow", "🟨"],
+    ["lightgreen", "🟩"],
+    ["lightblue", "🟦"],
+    ["thistle", "🟪"]
+  ])
+
+  constructor(private _snackBar: MatSnackBar, private _clipboard: Clipboard) {}
 
   ngOnChanges() {
-
     this.puzzleFileName = environment.assetFilePath + this.puzzleFileName;
 
     fetch(this.puzzleFileName).then(res => res.json())
@@ -47,16 +63,16 @@ export class GridComponent {
 
         // TODO: clean this up
         this.puzzleData?.categories[0].words.forEach(word => {
-          this.wordArray.push(new Word(word, false));
+          this.wordArray.push(new Word(word, this.puzzleData?.categories[0].difficulty!, false));
         });
         this.puzzleData?.categories[1].words.forEach(word => {
-          this.wordArray.push(new Word(word, false));
+          this.wordArray.push(new Word(word, this.puzzleData?.categories[1].difficulty!, false));
         });
         this.puzzleData?.categories[2].words.forEach(word => {
-          this.wordArray.push(new Word(word, false));
+          this.wordArray.push(new Word(word, this.puzzleData?.categories[2].difficulty!, false));
         });
         this.puzzleData?.categories[3].words.forEach(word => {
-          this.wordArray.push(new Word(word, false));
+          this.wordArray.push(new Word(word, this.puzzleData?.categories[3].difficulty!, false));
         });
 
         console.log("original");
@@ -106,15 +122,13 @@ export class GridComponent {
   submitAnswer() {
     let isAnswerCorrect = false;
     let isAnswerClose = false;
+
+    let currentlySelectedWordsOnly = this.selectedWords.map(word => word.word);
+    this.guessedCategories.push(this.selectedWords);
+    console.log(this.guessedCategories);
+
     this.puzzleData?.categories.forEach(category => {
-      // let doesAnswerMatch = this.selectedWords.every(item => category.words.includes(item.word))
-      //   && category.words.every(item => this.selectedWords.map(word => word.word).includes(item));
-
-      let currentlySelectedWordsOnly = this.selectedWords.map(word => word.word);
-
       let categoryIntersection = intersection(currentlySelectedWordsOnly, category.words);
-      console.log(categoryIntersection);
-      let doesAnswerMatch = categoryIntersection.length === 4;
 
       if (categoryIntersection.length === 4) { // answer is correct
         this.correctAnswersSoFar += 1;
@@ -156,9 +170,6 @@ export class GridComponent {
         this._snackBar.open("Answer is correct!", "Close", { duration: 3000, verticalPosition: 'top' });
       }
 
-      // add to correctCategories
-      this.correctCategories.push();
-
       // clean up selectedWords and wordArray
       this.selectedWords.forEach(item1 => {
         this.wordArray.forEach((item2, index2) => {
@@ -167,6 +178,24 @@ export class GridComponent {
       });
       this.selectedWords = [];
     }
+  }
+
+  formatGuessedCategories() {
+    let guessedCategoriesStr = '';
+    this.guessedCategories.forEach(guess => {
+      guess.forEach(word => {
+        // guessedCategoriesStr += this.colorToEmojiUnicode[word.difficulty as keyof typeof this.colorToEmojiUnicode];
+        guessedCategoriesStr += this.colorToEmojiUnicodeMap.get(word.difficulty);
+      })
+      guessedCategoriesStr += '\n';
+    });
+    return guessedCategoriesStr;
+  }
+
+  copyGuessedCategoriesToClipboard() {
+    let guessedCategoriesStr = this.formatGuessedCategories();
+    console.log(guessedCategoriesStr);
+    this._clipboard.copy(guessedCategoriesStr);
   }
 
   // shuffle implementation w/ seed
