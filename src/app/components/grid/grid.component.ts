@@ -7,6 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { intersection } from 'lodash';
 
+import { environment } from '../../../environments/environment';
+
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
@@ -30,11 +32,7 @@ export class GridComponent {
 
   ngOnChanges() {
 
-    // prod env
-    this.puzzleFileName = '/connections-crew/assets/' + this.puzzleFileName;
-
-    // local env
-    // this.puzzleFileName = '/assets/' + this.puzzleFileName;
+    this.puzzleFileName = environment.assetFilePath + this.puzzleFileName;
 
     fetch(this.puzzleFileName).then(res => res.json())
       .then(json => {

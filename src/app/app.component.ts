@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { environment } from '../environments/environment';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,10 +13,7 @@ export class AppComponent {
   selectedPuzzleFileName: string = '';
 
   // prod env
-  puzzleListFile = '/connections-crew/assets/puzzle-list-file.json';
-
-  // local env
-  // puzzleListFile = '/assets/puzzle-list-file.json';
+  puzzleListFile = environment.assetFilePath + 'puzzle-list-file.json';
 
   ngOnInit() {
     fetch(this.puzzleListFile).then(res => res.json())
