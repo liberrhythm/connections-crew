@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { intersection } from 'lodash';
 
-import { environment } from '../../../environment/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-grid',
