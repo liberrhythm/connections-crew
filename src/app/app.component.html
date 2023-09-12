@@ -1,17 +1,27 @@
 <div id="app-container">
   <h1 id="title">{{ title }}</h1>
-
-  <mat-form-field id="puzzle-selector">
-    <mat-select placeholder="Puzzle Name" [(value)]="selectedPuzzleFileName">
-      <mat-option *ngFor="let file of puzzleFiles" [value]="file.fileName">
-        {{ file.fileName.slice(0, -5) }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <div id="grid-container">
-    <app-grid [puzzleFileName]="selectedPuzzleFileName"></app-grid>
-  </div>
+  <mat-tab-group [mat-stretch-tabs]="true">
+    <mat-tab label="Create Puzzle (BETA)">
+      <div id="create-puzzle-container">
+        <app-create-puzzle></app-create-puzzle>
+      </div>
+      <!-- <button mat-stroked-button routerLink="/create-puzzle">Create Puzzle</button> -->
+    </mat-tab>
+    <mat-tab label="Play Puzzle">
+      <div id="play-puzzle-container">
+        <mat-form-field id="puzzle-selector">
+          <mat-select placeholder="Select Puzzle" [(value)]="selectedPuzzleFileName">
+            <mat-option *ngFor="let file of puzzleFiles" [value]="file.fileName">
+              {{ file.fileName.slice(0, -5) }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div id="grid-container">
+          <app-grid [puzzleFileName]="selectedPuzzleFileName"></app-grid>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
 </div>
 
 <router-outlet></router-outlet>

@@ -23,4 +23,8 @@ export class AppComponent {
       });
   }
 
+  // navigateToCreatePuzzle() {
+
+  // }
+
 }
