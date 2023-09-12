@@ -31,13 +31,6 @@ export class GridComponent {
 
   randomSeed: number = 0.6268806904199931; // to be fixed
 
-  colorToEmojiUnicode = {
-    "yellow": "&#129000",
-    "green": "&#129001",
-    "blue": "&#128998",
-    "purple": "&#129002"
-  };
-
   colorToEmojiUnicodeMap = new Map([
     ["lightyellow", "🟨"],
     ["lightgreen", "🟩"],
@@ -182,9 +175,9 @@ export class GridComponent {
 
   formatGuessedCategories() {
     let guessedCategoriesStr = '';
+    guessedCategoriesStr += this.puzzleFileName.slice(0, -5) + '\n'
     this.guessedCategories.forEach(guess => {
       guess.forEach(word => {
-        // guessedCategoriesStr += this.colorToEmojiUnicode[word.difficulty as keyof typeof this.colorToEmojiUnicode];
         guessedCategoriesStr += this.colorToEmojiUnicodeMap.get(word.difficulty);
       })
       guessedCategoriesStr += '\n';

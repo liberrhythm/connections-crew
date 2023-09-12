@@ -4,7 +4,7 @@
   <mat-form-field id="puzzle-selector">
     <mat-select placeholder="Puzzle Name" [(value)]="selectedPuzzleFileName">
       <mat-option *ngFor="let file of puzzleFiles" [value]="file.fileName">
-        {{ file.fileName }}
+        {{ file.fileName.slice(0, -5) }}
       </mat-option>
     </mat-select>
   </mat-form-field>
