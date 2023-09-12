@@ -11,7 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CategoryComponent } from './category/category.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [

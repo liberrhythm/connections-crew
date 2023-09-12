@@ -1,4 +1,4 @@
-import { Category } from './../models/category.model';
+import { Category } from '../../models/category.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
