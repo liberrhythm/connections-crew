@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "category": "REFLECTS TO MAKE A PALINDROME",
+      "difficulty": "lightgreen",
+      "words": ["TEN", "KAY", "CIV", "RACE"]
+    },
+    {
+      "category": "ROMAN NUMERAL WORDS",
+      "difficulty": "lightblue",
+      "words": ["MID", "MIX", "DIV", "XI"]
+    },
+    {
+      "category": "WORDS FOR NUMBERS",
+      "difficulty": "lightyellow",
+      "words": ["DIGIT", "NUMERAL", "INTEGER", "UNIT"]
+    },
+    {
+      "category": "WORDS THAT ARE A LETTER",
+      "difficulty": "thistle",
+      "words": ["WHY", "YOU", "QUEUE", "JAY"]
+    }
+  ]
+}

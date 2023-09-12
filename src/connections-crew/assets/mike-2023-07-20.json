@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "category": "UNITS OF LENGTH",
+      "difficulty": "lightblue",
+      "words": ["HAND", "ROD", "CHAIN", "ANGSTROM"]
+    },
+    {
+      "category": "SCRAMBLED SHADES OF RED",
+      "difficulty": "thistle",
+      "words": ["MICRONS", "ROMANO", "MAGNATE", "ARGENT"]
+    },
+    {
+      "category": "SEAS",
+      "difficulty": "lightgreen",
+      "words": ["CORAL", "RED", "BLACK", "YELLOW"]
+    },
+    {
+      "category": "MUSICANS WHO GO BY ONE NAME",
+      "difficulty": "lightyellow",
+      "words": ["PINK", "PRINCE", "TIFFANY", "SLASH"]
+    }
+  ]
+}
