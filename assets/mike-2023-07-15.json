@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "category": "BALLS",
+      "difficulty": "lightgreen",
+      "words": ["FIRE", "CRYSTAL", "ROYAL", "DISCO"]
+    },
+    {
+      "category": "WORDS STARTING WITH ROCK",
+      "difficulty": "lightyellow",
+      "words": ["ROCK", "ROCKABILLY", "ROCKIE", "ROCKET"]
+    },
+    {
+      "category": "THINGS THAT ARE WARM",
+      "difficulty": "thistle",
+      "words": ["SUN", "BLAZE", "LIGHTNING", "HEAT"]
+    },
+    {
+      "category": "NBA FRANCHISES",
+      "difficulty": "lightblue",
+      "words": ["KING", "THUNDER", "JAZZ", "MAGIC"]
+    }
+  ]
+}

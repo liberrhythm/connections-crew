@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "category": "SLANG NAMES FOR NATIONALITIES",
+      "difficulty": "lightgreen",
+      "words": ["CANUCK", "KRAUT", "AUSSIE", "PADDY"]
+    },
+    {
+      "category": "NAMES WITH PERRY",
+      "difficulty": "lightblue",
+      "words": ["KATY", "PLATYPUS", "MATTHEW", "STEVE"]
+    },
+    {
+      "category": "EGG-LAYING ANIMALS",
+      "difficulty": "lightyellow",
+      "words": ["ECHIDNA", "GOOSE", "IBIS", "KIWI"]
+    },
+    {
+      "category": "____ ROLL",
+      "difficulty": "thistle",
+      "words": ["CINNAMON", "DINNER", "PAY", "RICK"]
+    }
+  ]
+}
