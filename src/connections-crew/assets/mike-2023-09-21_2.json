@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "ASSASSINATED",
+      "difficulty": "lightyellow",
+      "words": [
+        "LINCOLN",
+        " GARFIELD",
+        "MCKINLEY",
+        "KENNEDY"
+      ]
+    },
+    {
+      "category": "DIED IN OFFICE",
+      "difficulty": "lightgreen",
+      "words": [
+        "HARRISON",
+        "HARDING",
+        "F ROOSEVELT",
+        "TAYLOR"
+      ]
+    },
+    {
+      "category": "SERVED IN THE MILITARY",
+      "difficulty": "lightblue",
+      "words": [
+        "WASHINGTON",
+        " GRANT",
+        "T ROOSEVELT",
+        "EISENHOWER"
+      ]
+    },
+    {
+      "category": "ASCENDED FROM VP",
+      "difficulty": "thistle",
+      "words": [
+        "TYLER",
+        "FILLMORE",
+        "COOLIDGE",
+        "FORD"
+      ]
+    }
+  ]
+}

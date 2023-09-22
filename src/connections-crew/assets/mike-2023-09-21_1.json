@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "WHISKEY SOUR INGREDIENTS",
+      "difficulty": "thistle",
+      "words": [
+        "JACK",
+        "ICE",
+        "EGG",
+        "LEMON"
+      ]
+    },
+    {
+      "category": "SUGGESTIVE EMOJIS",
+      "difficulty": "lightblue",
+      "words": [
+        "WATER",
+        "CHERRY",
+        "PEACH",
+        "TONGUE"
+      ]
+    },
+    {
+      "category": "DOZENS",
+      "difficulty": "lightgreen",
+      "words": [
+        "ROSE",
+        "INCH",
+        "SODA",
+        "DONUT"
+      ]
+    },
+    {
+      "category": "COURT ____",
+      "difficulty": "lightyellow",
+      "words": [
+        "SHIP",
+        "YARD",
+        "JUROR",
+        "ROOM"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "2+ AXES OF SYMMETRY",
+      "difficulty": "lightyellow",
+      "words": [
+        "H",
+        "I",
+        "O",
+        "X"
+      ]
+    },
+    {
+      "category": "HOMOPHONES OF WORDS",
+      "difficulty": "lightgreen",
+      "words": [
+        "B",
+        "J",
+        "R",
+        "Q"
+      ]
+    },
+    {
+      "category": "PRINT COLORS",
+      "difficulty": "lightblue",
+      "words": [
+        "C",
+        "M",
+        "Y",
+        "K"
+      ]
+    },
+    {
+      "category": "ELEMENTAL SYMBOLS",
+      "difficulty": "thistle",
+      "words": [
+        "N",
+        "P",
+        "V",
+        "W"
+      ]
+    }
+  ]
+}

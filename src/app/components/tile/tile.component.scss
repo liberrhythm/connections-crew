@@ -3,6 +3,7 @@
   height: 100px;
   display: flex;
   justify-content: center;
+  font-size: calc(2.25 * (0.8vw + 0.2vh));
 }
 
 #tile:hover {
