@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "MANHATTAN BRIDGES / TUNNELS",
+      "difficulty": "thistle",
+      "words": [
+        "LINCOLN",
+        "WASHINGTON",
+        " ROOSEVELT",
+        " BROOKLYN"
+      ]
+    },
+    {
+      "category": "AMBIGUOUS PRESIDENTS",
+      "difficulty": "lightyellow",
+      "words": [
+        "BUSH",
+        "ADAMS",
+        "JOHNSON",
+        "HARRISON"
+      ]
+    },
+    {
+      "category": "FAMOUS GEORGES",
+      "difficulty": "lightgreen",
+      "words": [
+        "MICHAEL",
+        "LUCAS",
+        "CARLIN",
+        "III"
+      ]
+    },
+    {
+      "category": "LAST NAMES WITH BODIES OF WATER",
+      "difficulty": "lightblue",
+      "words": [
+        "SEACREST",
+        "RIVERS",
+        "BLAKELY",
+        "BAY"
+      ]
+    }
+  ]
+}
