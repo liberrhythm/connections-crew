@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "FORMER BRITISH EMPIRE",
+      "difficulty": "lightyellow",
+      "words": [
+        "INDIA",
+        " SINGAPORE",
+        "HONG KONG",
+        "GIBRALTAR"
+      ]
+    },
+    {
+      "category": "COUNTRIES CONTESTING TERRITORIES",
+      "difficulty": "lightgreen",
+      "words": [
+        "CYPRUS",
+        "SERBIA",
+        "AZERBAIJAN",
+        "GEORGIA"
+      ]
+    },
+    {
+      "category": "RED/GREEN/WHITE FLAGS",
+      "difficulty": "lightblue",
+      "words": [
+        "HUNGARY",
+        "BELARUS",
+        "OMAN",
+        "MADAGASCAR"
+      ]
+    },
+    {
+      "category": "EXACTLY 1 NEIGHBOR",
+      "difficulty": "thistle",
+      "words": [
+        "S KOREA",
+        "PORTUGAL",
+        "QATAR",
+        "REP OF IRELAND"
+      ]
+    }
+  ]
+}
