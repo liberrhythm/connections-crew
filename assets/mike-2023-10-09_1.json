@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "____ CAT",
+      "difficulty": "lightyellow",
+      "words": [
+        "STREET",
+        "WILD",
+        "DOJA",
+        "TOM"
+      ]
+    },
+    {
+      "category": "CAT ____",
+      "difficulty": "lightgreen",
+      "words": [
+        "WALK",
+        "SUIT",
+        "CALL",
+        "NAP"
+      ]
+    },
+    {
+      "category": "*CAT* OR *TAC*",
+      "difficulty": "thistle",
+      "words": [
+        "SCATHE",
+        "CATCH",
+        "TACO",
+        "STACK"
+      ]
+    },
+    {
+      "category": "CUTE PARTS OF WITTLE KITTIES",
+      "difficulty": "lightblue",
+      "words": [
+        "TAIL",
+        "EYE",
+        "EAR",
+        "BEANS"
+      ]
+    }
+  ]
+}
