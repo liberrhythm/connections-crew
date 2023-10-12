@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "INNER ____",
+      "difficulty": "lightblue",
+      "words": [
+        "ROOM",
+        "CIRCLE",
+        "EAR",
+        "TUBE"
+      ]
+    },
+    {
+      "category": "GUN PARTS",
+      "difficulty": "lightgreen",
+      "words": [
+        "HAMMER",
+        "BUTT",
+        "BARREL",
+        "CYLINDER"
+      ]
+    },
+    {
+      "category": "LOOPS",
+      "difficulty": "lightyellow",
+      "words": [
+        "FOR",
+        "FROOT",
+        "BELT",
+        "FEEDBACK"
+      ]
+    },
+    {
+      "category": "SWITCH THE E AND O",
+      "difficulty": "thistle",
+      "words": [
+        "MELON",
+        "DOME",
+        "REDO",
+        " HOLE"
+      ]
+    }
+  ]
+}

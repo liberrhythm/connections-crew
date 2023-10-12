@@ -1,0 +1,44 @@
+{
+  "categories": [
+    {
+      "category": "GENDER NEUTRAL",
+      "difficulty": "lightyellow",
+      "words": [
+        "JORDAN",
+        "TAYLOR",
+        "MORGAN",
+        "RILEY"
+      ]
+    },
+    {
+      "category": "FIRST LADIES",
+      "difficulty": "lightgreen",
+      "words": [
+        "JACKIE",
+        "MELANIE",
+        "LAURA",
+        "MARTHA"
+      ]
+    },
+    {
+      "category": "WORLD CAPITALS",
+      "difficulty": "lightblue",
+      "words": [
+        "LONDON",
+        "PARIS",
+        "SOFIA",
+        "VICTORIA"
+      ]
+    },
+    {
+      "category": "BEATLES TITLE WOMEN",
+      "difficulty": "thistle",
+      "words": [
+        "ELEANOR",
+        "MICHELLE",
+        "PENNY",
+        "LUCY"
+      ]
+    }
+  ]
+}
