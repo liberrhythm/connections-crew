@@ -4,10 +4,6 @@
 </div>
 <div class="new-category-row" *ngIf="finalCategories.length < 4" [formGroup]="newCategoryGroup">
   <mat-form-field>
-    <mat-label>Words</mat-label>
-    <input matInput formControlName="newCategoryWords" oninput="this.value = this.value.toUpperCase()" required>
-  </mat-form-field>
-  <mat-form-field>
     <mat-label>Category</mat-label>
     <input matInput formControlName="newCategoryName" oninput="this.value = this.value.toUpperCase()" required>
   </mat-form-field>
@@ -20,6 +16,10 @@
         </mat-option>
       </div>
     </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Words</mat-label>
+    <input matInput formControlName="newCategoryWords" oninput="this.value = this.value.toUpperCase()" required>
   </mat-form-field>
   <button mat-fab color="basic" (click)="createFinalCategory()">
     <mat-icon>add</mat-icon>
