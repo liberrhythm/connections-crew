@@ -20,6 +20,7 @@ export class GridComponent {
   @Input() puzzleFileName: string = '';
   @Input() unlimited: boolean = false;
 
+  puzzleFilePath: string = '';
   puzzleData: Puzzle | undefined;
   wordArray: Word[] = [];
   selectedWords: Word[] = [];
@@ -42,9 +43,9 @@ export class GridComponent {
   constructor(private _snackBar: MatSnackBar, private _clipboard: Clipboard) {}
 
   ngOnChanges() {
-    this.puzzleFileName = environment.assetFilePath + this.puzzleFileName;
+    this.puzzleFilePath = environment.assetFilePath + this.puzzleFileName;
 
-    fetch(this.puzzleFileName).then(res => res.json())
+    fetch(this.puzzleFilePath).then(res => res.json())
       .then(json => {
         this.puzzleData = json;
 
@@ -177,7 +178,7 @@ export class GridComponent {
 
   formatGuessedCategories() {
     let guessedCategoriesStr = '';
-    guessedCategoriesStr += this.puzzleFileName.slice(0, -5) + '\n'
+    guessedCategoriesStr += this.puzzleFileName.slice(0, -5) + '\n';
     this.guessedCategories.forEach(guess => {
       guess.forEach(word => {
         guessedCategoriesStr += this.colorToEmojiUnicodeMap.get(word.difficulty);
