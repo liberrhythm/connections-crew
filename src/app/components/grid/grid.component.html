@@ -4,7 +4,7 @@
 <div id="grid-container" *ngIf="wordArray.length > 0">
   <app-tile *ngFor="let word of wordArray" [word]="word.word" [selected]="word.selected" (click)="toggleTileSelected(word)"></app-tile>
 </div>
-<div id="mistakes-container" *ngIf="wordArray.length > 0">
+<div id="mistakes-container" *ngIf="wordArray.length > 0 && !unlimited">
   <span>Mistakes remaining:</span>
   <mat-icon *ngFor="let _ of [].constructor(numMistakesRemaining)" fontIcon="circle"></mat-icon>
 </div>

@@ -6,7 +6,7 @@ import { Category } from './../../models/category.model';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { intersection } from 'lodash';
+import { intersection, clone } from 'lodash';
 
 import { environment } from '../../../environments/environment';
 
@@ -18,6 +18,7 @@ import { environment } from '../../../environments/environment';
 export class GridComponent {
 
   @Input() puzzleFileName: string = '';
+  @Input() unlimited: boolean = false;
 
   puzzleData: Puzzle | undefined;
   wordArray: Word[] = [];
@@ -51,8 +52,9 @@ export class GridComponent {
         this.wordArray = [];
         this.selectedWords = [];
         this.correctCategories = [];
-        this.numMistakesRemaining = 4;
         this.correctAnswersSoFar = 0;
+
+        this.numMistakesRemaining = this.unlimited ? 999 : 4;
 
         // TODO: clean this up
         this.puzzleData?.categories[0].words.forEach(word => {
@@ -117,7 +119,7 @@ export class GridComponent {
     let isAnswerClose = false;
 
     let currentlySelectedWordsOnly = this.selectedWords.map(word => word.word);
-    this.guessedCategories.push(this.selectedWords);
+    this.guessedCategories.push(clone(this.selectedWords));
     console.log(this.guessedCategories);
 
     this.puzzleData?.categories.forEach(category => {

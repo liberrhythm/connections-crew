@@ -13,14 +13,14 @@ mat-tab-group {
   min-width: 0%;
 }
 
-#play-puzzle-container {
+.play-puzzle-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 30px 0px;
 
-  #grid-container {
+  .grid-container {
     display: flex;
     justify-content: center;
     app-grid {
