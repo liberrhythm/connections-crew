@@ -25,16 +25,17 @@ export class CreatePuzzleComponent {
     ["purple", false]
   ]);
 
-  colorToCSSColorMap = new Map([
-    ["yellow", "lightyellow"],
-    ["green", "lightgreen"],
-    ["blue", "lightblue"],
-    ["purple", "thistle"]
-  ]);
+  colorToCSSColorMap = new Map();
 
   constructor(private _ref: ChangeDetectorRef, private _clipboard: Clipboard) {}
 
   ngOnInIt() {
+    this.colorToCSSColorMap = new Map([
+      ["yellow", "lightyellow"],
+      ["green", "lightgreen"],
+      ["blue", "lightblue"],
+      ["purple", "thistle"]
+    ]);
     this.resetNewCategory();
   }
 

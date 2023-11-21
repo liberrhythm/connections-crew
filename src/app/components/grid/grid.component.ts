@@ -43,6 +43,8 @@ export class GridComponent {
   constructor(private _snackBar: MatSnackBar, private _clipboard: Clipboard) {}
 
   ngOnChanges() {
+    if (!this.puzzleFileName) return;
+
     this.puzzleFilePath = environment.assetFilePath + this.puzzleFileName;
 
     fetch(this.puzzleFilePath).then(res => res.json())
